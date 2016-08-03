@@ -8,6 +8,7 @@
   },
   "scripts": {
     "prepublish": "babel src --out-dir lib",
+    "instasift": "babel-node src/cli.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -29,6 +30,7 @@
   },
   "dependencies": {
     "instagram-scrape-account-stats": "0.0.0",
-    "instagram-screen-scrape": "^2.0.0"
+    "instagram-screen-scrape": "^2.0.0",
+    "stream-to-promise": "^2.2.0"
   }
 }
