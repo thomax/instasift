@@ -1,0 +1,35 @@
+{
+  "description": null,
+  "followers": 138,
+  "following": 188,
+  "isExplicit": false,
+  "isPrivate": false,
+  "isVerified": false,
+  "name": "Espen Hovlandsdal",
+  "userId": "275390688",
+  "username": "ehovlandsdal",
+  "posts": 173,
+  "website": "https://espen.codes",
+  "averageLikes": 10.2,
+  "averageComments": 0.6,
+  "mostLikedImage": {
+    "id": "BFXMXxbisdv",
+    "username": "ehovlandsdal",
+    "time": 1463174631,
+    "type": "image",
+    "likes": 39,
+    "comments": 2,
+    "text": "Paradise for beer geeks at CBC #craftbeer #heaven #beer",
+    "media": "https://scontent-amt2-1.cdninstagram.com/t51.2885-15/s640x640/sh0.08/e35/13183353_1070063943068924_289085737_n.jpg?ig_cache_key=MTI0OTUyMTgzMTgwMDEyOTM5MQ%3D%3D.2"
+  },
+  "leastLikedImage": {
+    "id": "pUNrF0CsRk",
+    "username": "ehovlandsdal",
+    "time": 1402945108,
+    "type": "image",
+    "likes": 0,
+    "comments": 0,
+    "text": "Ja, @komplettno, jeg vil gjerne vinne en PS4... #komplettPS4",
+    "media": "https://scontent-amt2-1.cdninstagram.com/t51.2885-15/e15/10471966_665404513546249_1614136641_n.jpg?ig_cache_key=NzQ0Mjc5OTc0MjA2OTQ4NDUy.2"
+  }
+}

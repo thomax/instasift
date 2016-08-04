@@ -1,0 +1,35 @@
+{
+  "description": null,
+  "followers": 28,
+  "following": 96,
+  "isExplicit": false,
+  "isPrivate": false,
+  "isVerified": false,
+  "name": "Sean Lang",
+  "userId": "465981344",
+  "username": "slang800",
+  "posts": 3,
+  "website": "http://slang.cx",
+  "averageLikes": 5.3,
+  "averageComments": 0,
+  "mostLikedImage": {
+    "id": "1HZGacFQSN",
+    "username": "slang800",
+    "time": 1428284695,
+    "type": "image",
+    "likes": 7,
+    "comments": 0,
+    "text": "From April 2nd, 2015 at 3:55:08pm",
+    "media": "https://scontent-amt2-1.cdninstagram.com/t51.2885-15/e15/11116817_469245433222656_1539609229_n.jpg?ig_cache_key=OTU2ODQzODM3NzA3NTg0NjUz.2"
+  },
+  "leastLikedImage": {
+    "id": "rOaZ03FQbx",
+    "username": "slang800",
+    "time": 1407045423,
+    "type": "image",
+    "likes": 3,
+    "comments": 0,
+    "text": "Frequent conversions will fill your heart with joy. #adlife",
+    "media": "https://scontent-amt2-1.cdninstagram.com/t51.2885-15/e15/10518142_324322737730256_1744605009_n.jpg?ig_cache_key=Nzc4Njc1OTA5NTM2NTgxMzYx.2"
+  }
+}
