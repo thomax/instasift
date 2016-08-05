@@ -36,14 +36,6 @@ function getUserPosts(username) {
   })
 }
 
-// function postsByTime(a, b) {
-//   if (a.time < b.time)
-//     return -1
-//   if (a.time > b.time)
-//     return 1
-//   return 0
-// }
-
 
 function decorateProfile(profile, posts) {
   const result = Object.assign({}, profile)
@@ -53,7 +45,7 @@ function decorateProfile(profile, posts) {
   var totalVideoViews = 0
   var mostLikedImage = {likes: -1}
   var leastLikedImage = {likes: 9999999999}
-  var totalFreshPosts = 0
+  var freshPosts = 0
   const freshThreshold = moment().subtract(3, 'months')
 
   posts.forEach(post => {
@@ -62,7 +54,7 @@ function decorateProfile(profile, posts) {
 
     // count posts within limit
     if (moment(post.time * 1000).valueOf() > freshThreshold.valueOf()) {
-      totalFreshPosts += 1
+      freshPosts += 1
     }
     if (post.type == 'image') {
       if (post.likes > mostLikedImage.likes) {
