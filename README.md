@@ -11,6 +11,6 @@ o Avg. likes
 - Avg. video views
 o Bilde med flest likes
 o Bilde med færrest likes.
-- Avg. post per mnd. Med utgangspunkt i siste 3 mnd.
+o Number of posts last three months (Avg. post per mnd. Med utgangspunkt i siste 3 mnd.)
 - Bad hashtags som  #likeforlike, #instalike, #followme, #followforfollow
 - Bonus: navnet på instabrukere som har likt et bilde

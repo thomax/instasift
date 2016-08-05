@@ -3,8 +3,9 @@ import {writeFileSync} from 'fs'
 import {getAccountStats} from 'instagram-scrape-account-stats'
 import {InstagramPosts} from 'instagram-screen-scrape'
 import streamToPromise from 'stream-to-promise'
+import moment from 'moment'
 const dataDir = './data'
-const badTags = ['likeforlike', 'instalike', 'followme', 'followforfollow']
+const badTags = ['#likeforlike', '#instalike', '#followme', '#followforfollow']
 const username = process.argv[2]
 
 if (!username) {
@@ -35,17 +36,34 @@ function getUserPosts(username) {
   })
 }
 
+// function postsByTime(a, b) {
+//   if (a.time < b.time)
+//     return -1
+//   if (a.time > b.time)
+//     return 1
+//   return 0
+// }
+
+
 function decorateProfile(profile, posts) {
   const result = Object.assign({}, profile)
+
   var totalLikes = 0
   var totalComments = 0
   var totalVideoViews = 0
   var mostLikedImage = {likes: -1}
   var leastLikedImage = {likes: 9999999999}
+  var totalFreshPosts = 0
+  const freshThreshold = moment().subtract(3, 'months')
 
   posts.forEach(post => {
     totalLikes += post.likes
     totalComments += post.comments
+
+    // count posts within limit
+    if (moment(post.time * 1000).valueOf() > freshThreshold.valueOf()) {
+      totalFreshPosts += 1
+    }
     if (post.type == 'image') {
       if (post.likes > mostLikedImage.likes) {
         mostLikedImage = post
@@ -55,13 +73,14 @@ function decorateProfile(profile, posts) {
       }
     }
     if (post.type == 'video') {
-      //totalVideoLikes += post.videoViews
+      // record something usefule with post.videoViews
     }
   })
   result.averageLikes = Number((totalLikes/profile.posts).toFixed(1))
   result.averageComments = Number((totalComments/profile.posts).toFixed(1))
   result.mostLikedImage = mostLikedImage
   result.leastLikedImage = leastLikedImage
+  result.freshPosts = freshPosts
   return result
 }
 
