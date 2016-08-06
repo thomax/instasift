@@ -8,8 +8,8 @@
   },
   "scripts": {
     "start": "remon --require ./.init.js server.js",
-    "prepublish": "babel src --out-dir lib",
-    "instasift": "babel-node src/cli.js",
+    "build": "babel src --out-dir lib",
+    "instasift": "babel-node --presets es2015 -- src/cli.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/thomax/instasift#readme",
   "devDependencies": {
-    "babel": "^5.8.38",
+    "babel": "^6.5.2",
     "babel-cli": "^6.10.1",
     "babel-preset-es2015": "^6.13.2",
     "babel-preset-react": "^6.11.1",

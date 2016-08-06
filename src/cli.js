@@ -4,6 +4,7 @@ import {getAccountStats} from 'instagram-scrape-account-stats'
 import {InstagramPosts} from 'instagram-screen-scrape'
 import streamToPromise from 'stream-to-promise'
 import moment from 'moment'
+import allProfiles from '../data/allProfiles'
 const dataDir = './data'
 const badTags = ['#likeforlike', '#instalike', '#followme', '#followforfollow']
 const username = process.argv[2]
@@ -46,6 +47,7 @@ function decorateProfile(profile, posts) {
   var mostLikedImage = {likes: -1}
   var leastLikedImage = {likes: 9999999999}
   var freshPosts = 0
+  var freshLikes = 0
   const freshThreshold = moment().subtract(3, 'months')
 
   posts.forEach(post => {
@@ -55,6 +57,7 @@ function decorateProfile(profile, posts) {
     // count posts within limit
     if (moment(post.time * 1000).valueOf() > freshThreshold.valueOf()) {
       freshPosts += 1
+      freshLikes += post.likes
     }
     if (post.type == 'image') {
       if (post.likes > mostLikedImage.likes) {
@@ -73,20 +76,41 @@ function decorateProfile(profile, posts) {
   result.mostLikedImage = mostLikedImage
   result.leastLikedImage = leastLikedImage
   result.freshPosts = freshPosts
+  result.averageFreshLikes = Number((freshLikes/freshPosts).toFixed(1))
   return result
 }
 
 function storeProfile(username, dataAsObject) {
-  writeFileSync(`${dataDir}/${username}-profile`, JSON.stringify(dataAsObject, null, 2))
+  writeFileSync(`${dataDir}/${username}-profile.json`, JSON.stringify(dataAsObject, null, 2))
 }
 function storePosts(username, dataAsObject) {
-  writeFileSync(`${dataDir}/${username}-posts`, JSON.stringify(dataAsObject, null, 2))
+  writeFileSync(`${dataDir}/${username}-posts.json`, JSON.stringify(dataAsObject, null, 2))
+}
+function storeAllProfiles(profile) {
+  const index = indexOfProfile(profile)
+  if (index > -1) {
+    allProfiles[index] = profile
+  } else {
+    allProfiles.push(profile)
+  }
+  writeFileSync(`${dataDir}/allProfiles.json`, JSON.stringify(allProfiles, null, 2))
+}
+
+function indexOfProfile(profile) {
+  for (var i = 0 ; i < allProfiles.length ; i++) {
+    if (profile.username == allProfiles[i].username) {
+      return i
+    }
+  }
+  return -1
 }
 
 getUserPosts(username).then(posts => {
   storePosts(username, posts)
-  getUserProfile(username).then(profile => {
-    storeProfile(username, decorateProfile(profile, posts))
+  getUserProfile(username).then(basicProfile => {
+    const profile = decorateProfile(basicProfile, posts)
+    storeProfile(username, profile)
+    storeAllProfiles(profile)
     console.log('all done')
   })
 })

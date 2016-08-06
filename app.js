@@ -8,6 +8,8 @@ const app = express()
 app.set('trust proxy', true)
 
 app.disable('x-powered-by')
+app.use(express.static('public'))
+
 
 app.use('/sup', (req, res, next) => {
   res.setHeader('content-type', 'text/plain')

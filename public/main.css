@@ -1,0 +1,54 @@
+body {
+  font-family: "Helvetica";
+  background-color: #cecbd4;
+  color: #333333;
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
+}
+
+table {
+  font-size: 0.8em;
+}
+
+tr {
+  background-color: #eeeeee;
+}
+
+.profile-list {
+  list-style: none;
+  margin: 10px;
+  padding: 0px;
+}
+
+.profile {
+  margin-top: 30px;
+  padding: 5px 10px 10px 20px;
+  background-color: white;
+}
+
+img.best {
+  border: 20px solid green;
+  margin-right: 10px;
+}
+
+img.worst {
+  border: 20px solid red;
+}
+
+.imageLink .imageText {
+  font-size: 1em;
+  color: white;
+  background-color: gray;
+  position: relative;
+  bottom: 110px;
+  left: -150px;
+  visibility: hidden;
+  z-index: 100;
+}
+
+.imageLink:hover .imageText {
+  visibility: visible;
+}
