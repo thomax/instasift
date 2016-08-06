@@ -7,10 +7,10 @@
     "instasift": "./lib/cli.js"
   },
   "scripts": {
+    "start": "remon --require ./.init.js server.js",
     "prepublish": "babel src --out-dir lib",
     "instasift": "babel-node src/cli.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "babel-node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
@@ -23,16 +23,22 @@
   },
   "homepage": "https://github.com/thomax/instasift#readme",
   "devDependencies": {
-    "babel": "^6.5.2",
+    "babel": "^5.8.38",
     "babel-cli": "^6.10.1",
-    "babel-plugin-syntax-object-rest-spread": "^6.8.0",
-    "babel-plugin-transform-object-rest-spread": "^6.8.0",
-    "babel-preset-es2015": "^6.9.0"
+    "babel-preset-es2015": "^6.13.2",
+    "babel-preset-react": "^6.11.1",
+    "babel-preset-stage-0": "^6.5.0",
+    "babelify": "^7.3.0",
+    "remon": "^1.0.2"
   },
   "dependencies": {
+    "express": "^4.14.0",
     "instagram-scrape-account-stats": "0.0.0",
     "instagram-screen-scrape": "^2.0.0",
     "moment": "^2.14.1",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-domcontentloaded": "^1.0.2",
     "stream-to-promise": "^2.2.0"
   }
 }
