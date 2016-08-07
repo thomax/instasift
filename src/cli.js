@@ -44,6 +44,7 @@ function decorateProfile(profile, posts) {
   var totalLikes = 0
   var totalComments = 0
   var totalVideoViews = 0
+  const likeHistory = []
   var mostLikedImage = {likes: -1}
   var leastLikedImage = {likes: 9999999999}
   var freshPosts = 0
@@ -53,6 +54,7 @@ function decorateProfile(profile, posts) {
   posts.forEach(post => {
     totalLikes += post.likes
     totalComments += post.comments
+    likeHistory.push(post.likes)
 
     // count posts within limit
     if (moment(post.time * 1000).valueOf() > freshThreshold.valueOf()) {
@@ -75,6 +77,7 @@ function decorateProfile(profile, posts) {
   result.averageComments = Number((totalComments/profile.posts).toFixed(1))
   result.mostLikedImage = mostLikedImage
   result.leastLikedImage = leastLikedImage
+  result.likeHistory = likeHistory.reverse()
   result.freshPosts = freshPosts
   result.averageFreshLikes = Number((freshLikes/freshPosts).toFixed(1))
   return result

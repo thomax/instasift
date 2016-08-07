@@ -7,6 +7,7 @@ body {
 a {
   text-decoration: none;
   color: #333333;
+  margin: 0px;
 }
 
 table {
@@ -29,26 +30,12 @@ tr {
   background-color: white;
 }
 
-img.best {
-  border: 20px solid green;
-  margin-right: 10px;
+img {
+  height: 200px;
+  width: 200px;
 }
 
-img.worst {
-  border: 20px solid red;
-}
-
-.imageLink .imageText {
-  font-size: 1em;
-  color: white;
-  background-color: gray;
-  position: relative;
-  bottom: 110px;
-  left: -150px;
-  visibility: hidden;
-  z-index: 100;
-}
-
-.imageLink:hover .imageText {
-  visibility: visible;
+.imageText {
+  font-size: 1.5em;
+  vertical-align: top;
 }
