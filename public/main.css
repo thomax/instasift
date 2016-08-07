@@ -1,6 +1,6 @@
 body {
   font-family: "Helvetica";
-  background-color: #cecbd4;
+  background-color: #eeeeee;
   color: #333333;
 }
 
@@ -10,8 +10,13 @@ a {
   margin: 0px;
 }
 
+h2 {
+  font-size: 2.8em;  
+}
+
 table {
   font-size: 0.8em;
+  width: 530px;
 }
 
 tr {
@@ -31,11 +36,23 @@ tr {
 }
 
 img {
-  height: 200px;
-  width: 200px;
+  width: 250px;
+  margin: 0px 30px 0px 0px;
 }
 
-.imageText {
-  font-size: 1.5em;
-  vertical-align: top;
+svg {
+  width: 530px;
+}
+
+.image-text-list {
+  list-style: none;
+}
+
+div.image-box {
+  float: left;
+}
+
+hr {
+  clear: both;
+  visibility: hidden;
 }

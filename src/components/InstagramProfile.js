@@ -56,20 +56,26 @@ module.exports = React.createClass({
           </Sparklines>
         </div>
 
-        <div>
-          <a className="imageLink" href={`https://instagram.com/p/${profile.mostLikedImage.id}`} target="_blank">
+        <div className="image-box">
+          <a className="image-link" href={`https://instagram.com/p/${profile.mostLikedImage.id}`} target="_blank">
             <img className="best" src={profile.mostLikedImage.media}/>
           </a>
-          <span className="imageText">Likes {profile.mostLikedImage.likes}</span>
+          <ul className="image-text-list">
+            <li className="image-text">{profile.mostLikedImage.likes} likes</li>
+            <li className="image-text">Posted {moment(profile.mostLikedImage.time*1000).fromNow()}</li>
+          </ul>
         </div>
 
-        <div>
-          <a className="imageLink" href={`https://instagram.com/p/${profile.leastLikedImage.id}`} target="_blank">
+        <div className="image-box">
+          <a className="image-link" href={`https://instagram.com/p/${profile.leastLikedImage.id}`} target="_blank">
             <img className="worst" src={profile.leastLikedImage.media}/>
           </a>
-          <span className="imageText">Likes {profile.leastLikedImage.likes}</span>
-          <span className="imageText">{moment(profile.leastLikedImage.time*1000).calendar()}</span>
+          <ul className="image-text-list">
+            <li className="image-text">{profile.leastLikedImage.likes} likes</li>
+            <li className="image-text">Posted {moment(profile.leastLikedImage.time*1000).fromNow()}</li>
+          </ul>
         </div>
+        <hr/>
       </li>
     )
   }

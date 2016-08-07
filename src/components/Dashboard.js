@@ -22,7 +22,7 @@ export default React.createClass({
             <ul className="profile-list">
               {
                 allProfiles.map(profile => {
-                  return (<InstagramProfile profile={profile}/>)
+                  return (<InstagramProfile profile={profile} key={profile.username}/>)
                 })
               }
             </ul>

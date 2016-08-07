@@ -109,8 +109,12 @@ function indexOfProfile(profile) {
 }
 
 getUserPosts(username).then(posts => {
-  storePosts(username, posts)
   getUserProfile(username).then(basicProfile => {
+    if (basicProfile.isPrivate) {
+      console.log('Account is private, exiting')
+      return
+    }
+    storePosts(username, posts)
     const profile = decorateProfile(basicProfile, posts)
     storeProfile(username, profile)
     storeAllProfiles(profile)
