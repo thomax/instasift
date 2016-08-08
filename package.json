@@ -1,8 +1,9 @@
 {
   "name": "instasift",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Sifting instagram users",
   "main": "index.js",
+  "license": "MIT",
   "bin": {
     "instasift": "./lib/cli.js"
   },
