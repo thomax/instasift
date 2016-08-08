@@ -5,6 +5,7 @@ Sifting instagram users and calculate relevant stats
 ```
 git clone <this repo>
 npm install
+mkdir data
 npm run instasift <instagram-user-name>
 npm start
 open localhost:3000
