@@ -1,7 +1,8 @@
 import React from 'react'
 import {
   Sparklines,
-  SparklinesLine
+  SparklinesBars,
+  SparklinesReferenceLine
 } from 'react-sparklines'
 import moment from 'moment'
 
@@ -16,7 +17,7 @@ module.exports = React.createClass({
     const {profile} = this.props
     return (
       <li className="profile">
-        <h2><a href={`https://instagram.com/${profile.username}`} target="_blank">{profile.username}</a></h2>
+        <h2><a href={`https://instagram.com/${profile.username}`} target="_blank">@{profile.username}</a></h2>
         <table>
           <tbody>
             <tr>
@@ -52,7 +53,8 @@ module.exports = React.createClass({
 
         <div>
           <Sparklines data={profile.likeHistory}>
-            <SparklinesLine color="gray" style={{strokeWidth: 0.2, fill: 'none'}} />
+            <SparklinesBars />
+            <SparklinesReferenceLine type="mean" />
           </Sparklines>
         </div>
 
