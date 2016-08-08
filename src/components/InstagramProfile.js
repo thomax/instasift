@@ -1,6 +1,7 @@
 import React from 'react'
 import {
   Sparklines,
+  SparklinesLine,
   SparklinesBars,
   SparklinesReferenceLine
 } from 'react-sparklines'
@@ -23,6 +24,10 @@ module.exports = React.createClass({
             <tr>
               <th>Website</th>
               <th><a href={`${profile.website}`} target="_blank"> {profile.website}</a></th>
+            </tr>
+            <tr>
+              <th>User ID</th>
+              <th>{profile.userId}</th>
             </tr>
             <tr>
               <th>Followers</th>

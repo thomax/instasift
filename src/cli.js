@@ -90,10 +90,7 @@ function storePosts(username, dataAsObject) {
   writeFileSync(`${dataDir}/${username}-posts.json`, JSON.stringify(dataAsObject, null, 2))
 }
 function storeAllProfiles(profile) {
-  var allProfiles = []
-  if (exists('../data/allProfiles.json')) {
-    allProfiles = require('../data/allProfiles')
-  }
+  var allProfiles = require('../data/allProfiles')
   const index = indexOfProfile(profile, allProfiles)
   if (index > -1) {
     allProfiles[index] = profile
