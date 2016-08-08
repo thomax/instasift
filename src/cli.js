@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 import {writeFileSync} from 'fs'
+import exists from 'file-exists-sync'
 import {getAccountStats} from 'instagram-scrape-account-stats'
 import {InstagramPosts} from 'instagram-screen-scrape'
 import streamToPromise from 'stream-to-promise'
 import moment from 'moment'
-import allProfiles from '../data/allProfiles'
 const dataDir = './data'
 const badTags = ['#likeforlike', '#instalike', '#followme', '#followforfollow']
 const username = process.argv[2]
@@ -90,7 +90,11 @@ function storePosts(username, dataAsObject) {
   writeFileSync(`${dataDir}/${username}-posts.json`, JSON.stringify(dataAsObject, null, 2))
 }
 function storeAllProfiles(profile) {
-  const index = indexOfProfile(profile)
+  var allProfiles = []
+  if (exists('../data/allProfiles.json')) {
+    allProfiles = require('../data/allProfiles')
+  }
+  const index = indexOfProfile(profile, allProfiles)
   if (index > -1) {
     allProfiles[index] = profile
   } else {
@@ -99,7 +103,7 @@ function storeAllProfiles(profile) {
   writeFileSync(`${dataDir}/allProfiles.json`, JSON.stringify(allProfiles, null, 2))
 }
 
-function indexOfProfile(profile) {
+function indexOfProfile(profile, allProfiles) {
   for (var i = 0 ; i < allProfiles.length ; i++) {
     if (profile.username == allProfiles[i].username) {
       return i
